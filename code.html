@@ -1,0 +1,78 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+var deadline = new Date('November 1, 2019 00:00:30');
+
+var msMinute = 60*1000,
+    msHour = 60*60*1000,
+    msDay = 60*60*24*1000;
+  
+init();
+
+function init() {
+	var today = new Date();
+	update_time(today)
+}
+function update_time(today) {
+	var countdown = Math.floor((deadline - today) / msDay) + ":" + get_hours(today) + ":" + get_minutes(today) + ":" + get_seconds(today);
+	$("#party_countdown").text(countdown)
+}
+function get_hours(today) {
+	var hours = Math.floor(((deadline - today) % msDay) / msHour);
+	if (hours<=9) hours = "0" + hours;
+	return hours
+}
+function get_minutes(today) {
+	var minutes = Math.floor(((deadline - today) % msDay % msHour) / msMinute);
+	if (minutes<=9) minutes = "0" + minutes;
+	return minutes
+}
+function get_seconds(today) {
+	var seconds = Math.floor(((deadline - today) % msDay % msHour % msMinute) / 1000);
+	if (seconds<=9) seconds = "0" + seconds;
+	return seconds
+}
+setInterval(function() {
+    var today = new Date();
+    update_time(today);
+}, 1000)
+});
+</script>
+
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+<style type="text/css">
+#party_outer {
+    height: 500px;  /* Bigger footer with air will rock the boat better */
+    width: 100%;
+    font-family: 'Roboto Slab', serif;
+}
+#party_middle {
+    margin: 100px auto;
+    text-align: center;
+}
+#party_intro {
+	font-weight: bold;
+    text-align: center;
+    font-size: 2vw;
+}
+#party_countdown {
+	font-size: 12vw;
+}
+#party_wtf {
+    float:right;
+    margin: 0.5em;
+}
+</style>
+<div id="party_outer">  
+    <div id="party_middle">
+        <span id="party_intro">
+            <a href="https://meduza.io/news/2019/04/16/gosduma-prinyala-zakon-ob-izolyatsii-runeta" target="_blank">Вечеринка закончится</a> через
+        </span>
+        <h1 id="party_countdown">000:00:00:00</h1>
+    </div>
+    <div id="party_wtf">
+        <a href="https://github.com/johngaltline/404ru" target="_blank">Github</a>
+    </div>
+</div>
