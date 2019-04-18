@@ -47,6 +47,7 @@ setInterval(function() {
     height: 500px;  /* Bigger footer with air will rock the boat better */
     width: 100%;
     font-family: 'Roboto Slab', serif;
+    float: left;
 }
 #party_middle {
     margin: 100px auto;
@@ -56,6 +57,7 @@ setInterval(function() {
 	font-weight: bold;
     text-align: center;
     font-size: 2vw;
+    padding-bottom: 1em;
 }
 #party_countdown {
 	font-size: 12vw;
@@ -67,9 +69,9 @@ setInterval(function() {
 </style>
 <div id="party_outer">  
     <div id="party_middle">
-        <span id="party_intro">
+        <div id="party_intro">
             <a href="https://meduza.io/news/2019/04/16/gosduma-prinyala-zakon-ob-izolyatsii-runeta" target="_blank">Вечеринка закончится</a> через
-        </span>
+        </div>
         <h1 id="party_countdown">000:00:00:00</h1>
     </div>
     <div id="party_wtf">
